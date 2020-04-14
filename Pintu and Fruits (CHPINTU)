@@ -1,0 +1,65 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int a,b;
+        cin>>a>>b;
+        int *arr=new int[b+1];
+        for(int i=0;i<b;i++){
+            arr[i]=i+1;
+        }
+        int * frut=new int[a];
+        int *frut1=new int[a];
+        for(int i=0;i<a;i++){
+            cin>>frut[i];
+            
+        }
+        for(int i=0;i<a;i++){
+            cin>>frut1[i];
+        }
+        int * frutt=new int[a];
+        for(int i=0;i<a;i++){
+            frutt[i]=frut[i];
+        }
+        sort(frutt,frutt+a);
+        int t=min(b,frutt[a-1]);
+       //cout<<t;
+        //cout<<arr[0];
+        int *helper=new int[t];
+        int i1=0;
+        int s=0;
+        for(int i=0;i<t;i++){
+            int gh=arr[i];
+            //cout<<gh<<endl;
+            int s=0;
+            int res=0;
+            for(int j=0;j<a;j++){
+                //cout<<frut1[j];
+                if(gh==frut[j]){
+                    res=1;
+                    s=s+frut1[j];
+                    //cout<<s<<endl;
+                }
+            }
+            if(res==1){
+                helper[i]=s;
+            }else{
+                helper[i]=INT_MAX;
+            }
+        }
+        /*for(int i=0;i<t;i++){
+            cout<<helper[i]<<endl;
+        }*/
+        sort(helper,helper+t);
+        cout<<helper[0]<<endl;
+        
+       
+        
+        
+       
+        
+    }
+}
